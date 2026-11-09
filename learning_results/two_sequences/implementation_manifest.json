@@ -1,0 +1,78 @@
+{
+  "python": "3.12.16",
+  "unit_tests_passed": 35,
+  "source_files": [
+    {
+      "path": "examples\\local_tap.jsonl",
+      "sha256": "552621483589cae5a1c964c25573ad16ecc94a49f0780d7ae94df055154791de"
+    },
+    {
+      "path": "examples\\tap_then_socket.jsonl",
+      "sha256": "4432003d7cba9cbc638300de8bec9682d58f0ed363b154670d96172f77a0939a"
+    },
+    {
+      "path": "examples\\trash_then_water.jsonl",
+      "sha256": "93363688afe99a52c17bfac5160235aa54e176c19da426c7696c7862de106772"
+    },
+    {
+      "path": "examples\\wet_socket.jsonl",
+      "sha256": "9eb2e65ec0f8a1ee4aa9a5b1d813f842e7018dfbfe628d9dbb9d2d620973a74f"
+    },
+    {
+      "path": "examples\\wet_socket_contract.json",
+      "sha256": "4689f01c949f8ab404605ff3099d07fc86d6988b2d640b4019566ee0f58aa2f9"
+    },
+    {
+      "path": "safety_guard\\__init__.py",
+      "sha256": "d03be21c43a36225d5ac2519561828d10528b170b143d044421f36b2d996cdc0"
+    },
+    {
+      "path": "safety_guard\\__main__.py",
+      "sha256": "0f7d54f3fbb1f79a85eb8110f11793db99da6f3c61ee979de5abe9a1b5f3fdb3"
+    },
+    {
+      "path": "safety_guard\\catalog.py",
+      "sha256": "f528cc23b6e455fd105208c667f28d5827615c2b12187634eaedaa91bc7db517"
+    },
+    {
+      "path": "safety_guard\\cli.py",
+      "sha256": "c48a5885fbc094e937bbea833e768951c0ae26da8bc914ec1572661a946ce5b3"
+    },
+    {
+      "path": "safety_guard\\local.py",
+      "sha256": "1c47bbb966cb2b28597c41b4933837c23e33c90896411b8a11237ded70567393"
+    },
+    {
+      "path": "safety_guard\\logic.py",
+      "sha256": "3d3f3d1cfbe3e858d05ad46c832ad540a381c4209ebbd696228d9afb20bb24ae"
+    },
+    {
+      "path": "safety_guard\\runtime.py",
+      "sha256": "d88a1782a279abfb0805461145d60a9953a684d98795d95d9b1f283c07585a0d"
+    },
+    {
+      "path": "safety_guard\\state.py",
+      "sha256": "24694286609dbfac7b0f41df3d799660d0f057a81ecbfd65703859d88720d199"
+    },
+    {
+      "path": "safety_guard\\types.py",
+      "sha256": "094e3b50510027e840eef543a4193aa0a8fba737da8178932b54a05f4808da88"
+    },
+    {
+      "path": "safety_guard\\worker.py",
+      "sha256": "5c2a7c185f46cdc0ad1026f7f7d6e3473dddf6dfc3ceccfb5fd30d82fef2c70f"
+    },
+    {
+      "path": "scripts\\run_sequence_examples.py",
+      "sha256": "2e2b45fa89b1f5978a960730cdf8ec0f40f7353ec71b8234abef9ca88bb5ce64"
+    },
+    {
+      "path": "tests\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests\\test_guard.py",
+      "sha256": "655c963771138c283b010df725b14f36c4d16870fcebc7224ff80a05c1cee4d3"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "job_id": "8953bd39f16e4b6381dde4c0f6a648c9",
+  "candidate": {
+    "mode": "extend",
+    "contract_id": "hazard_model_001",
+    "predicates": [
+      {
+        "id": "hand_wet",
+        "subject": "right_hand",
+        "description": "右手表面湿润，存在导电介质。",
+        "default": null,
+        "default_basis": "未观测到干燥状态维持证据",
+        "valid_for_s": null
+      },
+      {
+        "id": "socket_energized",
+        "subject": "socket",
+        "description": "市电插座处于带电状态。",
+        "default": null,
+        "default_basis": "普通家用市电插座默认假设通电，无隔离证据",
+        "valid_for_s": null
+      },
+      {
+        "id": "hand_contacting_socket",
+        "subject": "right_hand",
+        "description": "右手与插座内部金属部件发生物理接触。",
+        "default": null,
+        "default_basis": "插入动作定义包含接触",
+        "valid_for_s": null
+      },
+      {
+        "id": "hand_contacting_plug",
+        "subject": "right_hand",
+        "description": "右手与插头金属引脚发生物理接触。",
+        "default": null,
+        "default_basis": "握持动作定义包含接触",
+        "valid_for_s": null
+      },
+      {
+        "id": "water_pathway_active",
+        "subject": "right_hand",
+        "description": "湿润的右手提供了从插座到人体的电流传导路径。",
+        "default": null,
+        "default_basis": "湿手 + 带电插座 = 潜在传导路径",
+        "valid_for_s": null
+      }
+    ],
+    "event_rules": [
+      {
+        "id": "rule_wet_from_water_contact",
+        "event": "water_contact",
+        "subject": "right_hand",
+        "when": true,
+        "effects": [
+          {
+            "predicate": "hand_wet",
+            "value": true
+          }
+        ],
+        "rationale": "事件 water_contact 明确描述手接触水流并留有水滴，直接确立湿润状态。"
+      }
+    ],
+    "time_rules": [],
+    "contract": {
+      "id": "hazard_model_001",
+      "task": "插插座",
+      "action": "用同一只右手握住插头，将其插入普通家用市电插座",
+      "bindings": {
+        "effector": "right_hand",
+        "target": "socket",
+        "object": "plug"
+      },
+      "description": "模型描述在湿手状态下将带电插头插入带电插座的电气接触风险。",
+      "post": true,
+      "coverage": "full",
+      "rationale": "场景历史显示 t=6 时右手已接触水流（water_contact），且后续无干燥或断电记录。因此 hand_wet 为真，socket_energized 基于常识为真。插入动作必然导致 hand_contacting_socket 和 hand_contacting_plug。湿手与带电插座的组合构成有效传导路径 (water_pathway_active)。",
+      "pre": {
+        "op": "not",
+        "args": [
+          {
+            "op": "and",
+            "args": [
+              {
+                "ref": "hand_wet"
+              },
+              {
+                "ref": "socket_energized"
+              }
+            ]
+          }
+        ]
+      },
+      "hold": {
+        "op": "not",
+        "args": [
+          {
+            "op": "and",
+            "args": [
+              {
+                "ref": "hand_contacting_socket"
+              },
+              {
+                "ref": "hand_contacting_plug"
+              },
+              {
+                "ref": "water_pathway_active"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "inferred_facts": [
+      {
+        "predicate": "hand_wet",
+        "value": true,
+        "at_s": 6,
+        "basis": "timeline event water_contact at t=6: '右手接触了流出的水，手表面留有水滴'",
+        "valid_for_s": null
+      },
+      {
+        "predicate": "socket_energized",
+        "value": true,
+        "at_s": 0,
+        "basis": "scene description: '没有提供切断插座电源的记录' + commonsense assumption for mains socket",
+        "valid_for_s": null
+      }
+    ],
+    "rationale": "场景历史中 t=6 发生 water_contact，确立 right_hand 湿润。无后续干燥或断电事件，故 hand_wet 持续为真。socket_energized 基于常识假设。插入动作隐含接触引脚和插座孔。pre_hazard 要求湿手且插座带电；hold_hazard 进一步要求物理接触建立传导路径。"
+  },
+  "captured_at_s": 10,
+  "catalog_at_capture": 0,
+  "claim": "Structure/consistency checked; semantic truth remains an LLM assumption."
+}

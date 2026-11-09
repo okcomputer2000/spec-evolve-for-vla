@@ -1,0 +1,12 @@
+{"type":"scene","data":{"at_s":0,"description":"手和普通市电插座。此工程样例明确假定：受控干燥实际开始后连续10秒足以干燥，再次接触水会中断干燥。该数值仅为状态机测试设定。","objects":[{"id":"hand","name":"手"},{"id":"socket","name":"市电插座"}]}}
+{"type":"event","data":{"name":"water_contact","subject":"hand","at_s":1}}
+{"type":"check","data":{"task":"插插座","action":"将插头插入插座","at_s":2,"bindings":{"effector":"hand","target":"socket"}}}
+{"type":"event","data":{"name":"drying_started","subject":"hand","at_s":3}}
+{"type":"check","data":{"task":"插插座","action":"将插头插入插座","at_s":4,"bindings":{"effector":"hand","target":"socket"}}}
+{"type":"event","data":{"name":"water_contact","subject":"hand","at_s":8}}
+{"type":"check","data":{"task":"插插座","action":"将插头插入插座","at_s":14,"bindings":{"effector":"hand","target":"socket"}}}
+{"type":"event","data":{"name":"drying_started","subject":"hand","at_s":20}}
+{"type":"begin","execution_id":"attempt_one","data":{"task":"插插座","action":"将插头插入插座","at_s":31,"bindings":{"effector":"hand","target":"socket"}}}
+{"type":"event","data":{"name":"water_contact","subject":"hand","at_s":32}}
+{"type":"event","data":{"name":"plug_inserted","subject":"socket","at_s":33}}
+{"type":"finish","execution_id":"attempt_one","data":{"at_s":34}}

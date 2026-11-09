@@ -1,0 +1,15 @@
+.venv/
+.venv312/
+*.egg-info/
+__pycache__/
+vendor/
+checkpoints/
+results/
+.env
+*.npz
+tools/
+models/
+downloads/
+data/
+experiments/
+*.pyc

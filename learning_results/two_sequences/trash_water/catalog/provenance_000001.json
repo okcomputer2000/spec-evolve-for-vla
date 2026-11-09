@@ -1,0 +1,115 @@
+{
+  "job_id": "b93a2f8208f842fcb96d9e4c8f5d0a2b",
+  "candidate": {
+    "mode": "extend",
+    "contract_id": "hygiene_transfer_guard",
+    "predicates": [
+      {
+        "id": "hand_contaminated",
+        "subject": "right_hand",
+        "description": "The right hand surface is contaminated with decomposing food residue from prior contact.",
+        "default": null,
+        "default_basis": "inferred_facts",
+        "valid_for_s": 10
+      },
+      {
+        "id": "cup_contact_proposed",
+        "subject": "right_hand",
+        "description": "The proposed action involves the right hand contacting the inner rim of the drinking cup.",
+        "default": null,
+        "default_basis": "inferred_facts",
+        "valid_for_s": 10
+      },
+      {
+        "id": "transfer_pathway_active",
+        "subject": "right_hand",
+        "description": "A pathway exists for transferring contaminants from the hand to the drinking cup.",
+        "default": null,
+        "default_basis": "inferred_facts",
+        "valid_for_s": 10
+      }
+    ],
+    "event_rules": [
+      {
+        "id": "rule_contamination_persistence",
+        "event": "garbage_contact",
+        "subject": "right_hand",
+        "when": true,
+        "effects": [
+          {
+            "predicate": "hand_contaminated",
+            "value": true
+          }
+        ],
+        "rationale": "Direct contact with contaminated trash establishes contamination state."
+      }
+    ],
+    "time_rules": [],
+    "contract": {
+      "id": "hygiene_transfer_guard",
+      "task": "倒饮用水",
+      "action": "用刚才的右手按住饮用杯杯口内沿固定杯子，让另一只手将水壶里的饮用水倒入杯中",
+      "bindings": {
+        "effector": "right_hand",
+        "container": "cup",
+        "source": "jug"
+      },
+      "description": "Guard against transferring food residue from the right hand to the drinking cup.",
+      "post": true,
+      "coverage": "full",
+      "rationale": "The right hand was contaminated at t=5 and has not been cleaned. The proposed action requires touching the inner rim of a clean drinking cup, creating a direct transfer pathway for contaminants.",
+      "pre": {
+        "op": "not",
+        "args": [
+          {
+            "op": "and",
+            "args": [
+              {
+                "ref": "hand_contaminated"
+              },
+              {
+                "ref": "cup_contact_proposed"
+              }
+            ]
+          }
+        ]
+      },
+      "hold": {
+        "op": "not",
+        "args": [
+          {
+            "op": "and",
+            "args": [
+              {
+                "ref": "hand_contaminated"
+              },
+              {
+                "ref": "transfer_pathway_active"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "inferred_facts": [
+      {
+        "predicate": "hand_contaminated",
+        "value": true,
+        "at_s": 5,
+        "basis": "event garbage_contact completed at t=5 established direct contact with decomposing food residue.",
+        "valid_for_s": null
+      },
+      {
+        "predicate": "cup_contact_proposed",
+        "value": true,
+        "at_s": 10,
+        "basis": "action description explicitly states right hand will press cup inner rim.",
+        "valid_for_s": null
+      }
+    ],
+    "rationale": "The right hand was contaminated at t=5 by contact with trash containing decomposing food residue. No cleaning event occurred between t=6 and t=10. The current action requires the right hand to touch the inner rim of a clean drinking cup. This creates an immediate transfer pathway for contaminants from the hand to the cup, violating hygiene safety requirements."
+  },
+  "captured_at_s": 10,
+  "catalog_at_capture": 0,
+  "claim": "Structure/consistency checked; semantic truth remains an LLM assumption."
+}

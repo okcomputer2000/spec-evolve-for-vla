@@ -1,0 +1,72 @@
+test_grouped_answers_reconstruct_from_each_action (test_benchmark.BenchmarkTests.test_grouped_answers_reconstruct_from_each_action) ... ok
+test_negative_question_selects_unsafe_action (test_benchmark.BenchmarkTests.test_negative_question_selects_unsafe_action) ... ok
+test_unknown_and_multiple_safe_actions_do_not_force_an_answer (test_benchmark.BenchmarkTests.test_unknown_and_multiple_safe_actions_do_not_force_an_answer) ... ok
+test_known_rules_and_uncompleted_commands_do_not_trigger_reading (test_completed_events.CompletedEventTests.test_known_rules_and_uncompleted_commands_do_not_trigger_reading) ... ok
+test_reading_excludes_future_task_and_observations_and_is_cached (test_completed_events.CompletedEventTests.test_reading_excludes_future_task_and_observations_and_is_cached) ... ok
+test_unresolved_reading_cannot_claim_definite_state (test_completed_events.CompletedEventTests.test_unresolved_reading_cannot_claim_definite_state) ... ok
+test_events_cannot_turn_proposal_content_or_dispositions_into_world_state (test_guard.CatalogTests.test_events_cannot_turn_proposal_content_or_dispositions_into_world_state) ... ok
+test_reject_contradictory_contract (test_guard.CatalogTests.test_reject_contradictory_contract) ... ok
+test_reject_dynamic_default_and_dead_default (test_guard.CatalogTests.test_reject_dynamic_default_and_dead_default) ... ok
+test_reject_undeclared_reference (test_guard.CatalogTests.test_reject_undeclared_reference) ... ok
+test_rollback_does_not_reuse_version_number (test_guard.CatalogTests.test_rollback_does_not_reuse_version_number) ... ok
+test_semantic_alias_reuses_compatible_contract (test_guard.CatalogTests.test_semantic_alias_reuses_compatible_contract) ... ok
+test_timer_cannot_start_from_an_unexecuted_proposal_or_disposition (test_guard.CatalogTests.test_timer_cannot_start_from_an_unexecuted_proposal_or_disposition) ... ok
+test_context_overflow_is_explicit (test_guard.LocalTests.test_context_overflow_is_explicit) ... ok
+test_grounding_schema_requires_exact_predicate_keys (test_guard.LocalTests.test_grounding_schema_requires_exact_predicate_keys) ... ok
+test_image_adapter_sends_image_to_separate_vision_stage (test_guard.LocalTests.test_image_adapter_sends_image_to_separate_vision_stage) ... ok
+test_reject_remote_endpoint (test_guard.LocalTests.test_reject_remote_endpoint) ... ok
+test_repair_grammar_excludes_effects_on_proposal_predicates (test_guard.LocalTests.test_repair_grammar_excludes_effects_on_proposal_predicates) ... ok
+test_structured_output_uses_local_ollama_without_proxy (test_guard.LocalTests.test_structured_output_uses_local_ollama_without_proxy) ... ERROR
+test_rtamt_does_not_lose_violation_at_duplicate_timestamp (test_guard.LogicTests.test_rtamt_does_not_lose_violation_at_duplicate_timestamp) ... ok
+test_rtamt_single_sample_and_unknown_gap (test_guard.LogicTests.test_rtamt_single_sample_and_unknown_gap) ... ok
+test_three_values (test_guard.LogicTests.test_three_values) ... ok
+test_unknown_boolean_expression_is_not_executed (test_guard.LogicTests.test_unknown_boolean_expression_is_not_executed) ... ok
+test_candidate_action_context_is_not_ignored_by_cached_mapping (test_guard.RuntimeTests.test_candidate_action_context_is_not_ignored_by_cached_mapping) ... ok
+test_completed_action_description_is_preserved_for_semantic_mapping (test_guard.RuntimeTests.test_completed_action_description_is_preserved_for_semantic_mapping) ... ok
+test_execution_with_semantic_alias_keeps_original_request (test_guard.RuntimeTests.test_execution_with_semantic_alias_keeps_original_request) ... ok
+test_grounding_fills_missing_values_before_solver_decision (test_guard.RuntimeTests.test_grounding_fills_missing_values_before_solver_decision) ... ok
+test_history_budget_returns_unknown_without_silent_data_loss (test_guard.RuntimeTests.test_history_budget_returns_unknown_without_silent_data_loss) ... ok
+test_hold_violation_latches_after_state_recovers (test_guard.RuntimeTests.test_hold_violation_latches_after_state_recovers) ... ok
+test_invalid_candidate_is_repaired_once_then_not_repeated_forever (test_guard.RuntimeTests.test_invalid_candidate_is_repaired_once_then_not_repeated_forever) ... ok
+test_mapping_reuse_and_fast_checks_do_not_call_model (test_guard.RuntimeTests.test_mapping_reuse_and_fast_checks_do_not_call_model) ... ok
+test_new_scene_cannot_silently_reuse_old_semantics (test_guard.RuntimeTests.test_new_scene_cannot_silently_reuse_old_semantics) ... ok
+test_postcondition_does_not_assume_command_completed (test_guard.RuntimeTests.test_postcondition_does_not_assume_command_completed) ... ok
+test_uninterpreted_completed_event_invalidates_cached_interpretation (test_guard.RuntimeTests.test_uninterpreted_completed_event_invalidates_cached_interpretation) ... ok
+test_unknown_is_immediate_and_background_replays_newer_event (test_guard.RuntimeTests.test_unknown_is_immediate_and_background_replays_newer_event) ... ok
+test_command_is_not_completed_event (test_guard.StateTests.test_command_is_not_completed_event) ... ok
+test_conflicting_reports_are_unknown (test_guard.StateTests.test_conflicting_reports_are_unknown) ... ok
+test_expiration_is_unknown_and_recorded_at_deadline (test_guard.StateTests.test_expiration_is_unknown_and_recorded_at_deadline) ... ok
+test_guard_does_not_use_fact_expiring_at_event_timestamp (test_guard.StateTests.test_guard_does_not_use_fact_expiring_at_event_timestamp) ... ok
+test_incoming_event_at_deadline_precedes_timer (test_guard.StateTests.test_incoming_event_at_deadline_precedes_timer) ... ok
+test_inference_cannot_overwrite_same_time_observation (test_guard.StateTests.test_inference_cannot_overwrite_same_time_observation) ... ok
+test_repeated_anchor_restarts_timer (test_guard.StateTests.test_repeated_anchor_restarts_timer) ... ok
+test_timer_requires_actual_drying_and_rewet_cancels (test_guard.StateTests.test_timer_requires_actual_drying_and_rewet_cancels) ... ok
+test_uncertain_guard_does_not_silently_skip_possible_change (test_guard.StateTests.test_uncertain_guard_does_not_silently_skip_possible_change) ... ok
+test_external_vision_text_is_formal_evidence (test_visual_evidence.VisualEvidenceTests.test_external_vision_text_is_formal_evidence) ... ok
+test_failed_local_call_keeps_inputs_for_diagnosis (test_visual_evidence.VisualEvidenceTests.test_failed_local_call_keeps_inputs_for_diagnosis) ... ok
+test_false_is_not_established_by_an_empty_source_list (test_visual_evidence.VisualEvidenceTests.test_false_is_not_established_by_an_empty_source_list) ... ok
+test_repair_feedback_preserves_hazard_polarity (test_visual_evidence.VisualEvidenceTests.test_repair_feedback_preserves_hazard_polarity) ... ok
+test_source_ids_follow_content_and_cannot_be_backdated (test_visual_evidence.VisualEvidenceTests.test_source_ids_follow_content_and_cannot_be_backdated) ... ok
+test_text_reasoner_does_not_silently_receive_images (test_visual_evidence.VisualEvidenceTests.test_text_reasoner_does_not_silently_receive_images) ... ok
+test_text_thinking_setting_does_not_enable_vision_thinking (test_visual_evidence.VisualEvidenceTests.test_text_thinking_setting_does_not_enable_vision_thinking) ... ok
+test_token_counting_preserves_full_evidence_and_rejects_real_overflow (test_visual_evidence.VisualEvidenceTests.test_token_counting_preserves_full_evidence_and_rejects_real_overflow) ... ok
+test_uncertain_visual_statement_cannot_become_definite_fact (test_visual_evidence.VisualEvidenceTests.test_uncertain_visual_statement_cannot_become_definite_fact) ... ok
+
+======================================================================
+ERROR: test_structured_output_uses_local_ollama_without_proxy (test_guard.LocalTests.test_structured_output_uses_local_ollama_without_proxy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\vla-safety-lab\tests\test_guard.py", line 429, in test_structured_output_uses_local_ollama_without_proxy
+    answer = model.resolve({"request": {"task": "插插座", "action": "插插座", "bindings": {"effector": "hand", "target": "socket"}}})
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\vla-safety-lab\safety_guard\local.py", line 485, in resolve
+    answer = self._chat(system, packet, schema, self.model)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\vla-safety-lab\safety_guard\local.py", line 358, in _chat
+    raise ValueError("Full evidence exceeds conservative context budget; no evidence was truncated")
+ValueError: Full evidence exceeds conservative context budget; no evidence was truncated
+
+----------------------------------------------------------------------
+Ran 53 tests in 5.886s
+
+FAILED (errors=1)

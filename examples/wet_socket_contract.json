@@ -1,0 +1,30 @@
+{
+  "mode": "extend",
+  "contract_id": "insert_socket",
+  "predicates": [
+    {"id":"hand_wet","subject":"hand","description":"Hand surface is wet","default":null,"default_basis":"Dynamic state requires event or contextual evidence","valid_for_s":null},
+    {"id":"socket_live","subject":"socket","description":"Mains socket is energized","default":true,"default_basis":"Explicit commonsense modeling assumption for ordinary mains socket, not a measurement","valid_for_s":null},
+    {"id":"drying_active","subject":"hand","description":"Controlled drying is in progress","default":null,"default_basis":"Requires actual drying start report","valid_for_s":null},
+    {"id":"plug_inserted","subject":"socket","description":"Plug insertion has completed","default":null,"default_basis":"Completion must be reported","valid_for_s":null}
+  ],
+  "event_rules": [
+    {"id":"water_wets_hand","event":"water_contact","subject":"hand","when":true,"effects":[{"predicate":"hand_wet","value":true},{"predicate":"drying_active","value":false}],"rationale":"New water exposure wets the hand and invalidates controlled drying"},
+    {"id":"start_controlled_drying","event":"drying_started","subject":"hand","when":true,"effects":[{"predicate":"drying_active","value":true}],"rationale":"A completion report that controlled drying actually started; a planned command has no effect"},
+    {"id":"interrupt_drying","event":"drying_interrupted","subject":"hand","when":true,"effects":[{"predicate":"drying_active","value":false}],"rationale":"Cancel the drying anchor"},
+    {"id":"insertion_completed","event":"plug_inserted","subject":"socket","when":true,"effects":[{"predicate":"plug_inserted","value":true}],"rationale":"Actual execution feedback, never inferred from the command"}
+  ],
+  "time_rules": [
+    {"id":"controlled_drying_deadline","anchor":"drying_active","anchor_value":true,"after_s":10,"when":{"op":"and","args":[{"ref":"drying_active"},{"ref":"hand_wet"}]},"effects":[{"predicate":"hand_wet","value":false},{"predicate":"drying_active","value":false}],"rationale":"Synthetic engineering fixture: this controlled drying process is explicitly modeled to take 10 seconds. This is not a calibrated physical drying guarantee."}
+  ],
+  "contract": {
+    "id":"insert_socket","task":"插插座","action":"将插头插入插座","bindings":{"effector":"hand","target":"socket"},
+    "description":"Prevent modeled wet contact with energized socket",
+    "pre":{"op":"not","args":[{"op":"and","args":[{"ref":"hand_wet"},{"ref":"socket_live"}]}]},
+    "hold":{"op":"not","args":[{"op":"and","args":[{"ref":"hand_wet"},{"ref":"socket_live"}]}]},
+    "post":{"ref":"plug_inserted"},
+    "coverage":"Wet electrical contact only; mechanical, electrical certification and unobserved hazards are outside this synthetic fixture",
+    "rationale":"Hand-authored test contract for deterministic state-machine integration"
+  },
+  "inferred_facts": [],
+  "rationale":"Hand-authored integration fixture, not output from a local LLM or evidence of benchmark accuracy"
+}
